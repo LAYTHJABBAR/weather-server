@@ -6,11 +6,13 @@ const cors = require('cors')
 const db = knex({
     client: 'pg',
     connection: {
-      connectionString: process.env.DATABASE_URL,
-      ssl: true,
+      host : '127.0.0.1',
+      user : '',
+      password : '',
+      database : 'test'
     }
   });
-  
+
 const app = express();
 
 app.use(bodyParser.json())
@@ -37,7 +39,7 @@ app.post('/', (req,res) => {
  }).then(response => {
    res.json(response)
  })
- 
+
 })
 
-app.listen(process.env.PORT || 3000)
+app.listen(3000) 
