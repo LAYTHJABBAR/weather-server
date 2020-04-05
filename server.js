@@ -17,14 +17,14 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.get('/profile', (req, res) => {
+app.get('/', (req, res) => {
  db.select('*').from('data').then(data => {
   res.send(data)
 })
 })
 
 
-app.post('/profile', (req,res) => {
+app.post('/', (req,res) => {
  const {name, temp, feellike, visibility, windspeed, status, date} = req.body
  db('data').returning('*').insert({
      name: name,
